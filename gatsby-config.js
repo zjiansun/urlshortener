@@ -1,9 +1,17 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
-  siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
-  },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Json`, // a fixed string
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `links`,
+        path: `${__dirname}/src/links`,
+      },
+    }
+  ],
 }
